@@ -45,10 +45,10 @@ class Molecule:
 		for atom in self.atoms:
 			atom[distance] += direction
 
-	def output_pdb(self):
+	def get_pdbtext(self):
 		lines = []
 		for atom in self.atoms:
-			lines.append("ATOM  {serial:5d} {atomname:4s}{altLoc:1s} {resName:3s}{chainID:1s}{resSeq:4d}{iCode:1s}   {x:8.3f}{y:8.3f}{z:8.3f}\n".format(
+			lines.append("ATOM  {serial:5d} {atomname:4s}{altLoc:1s}{resName:3s} {chainID:1s}{resSeq:4d}{iCode:1s}   {x:8.3f}{y:8.3f}{z:8.3f}\n".format(
 				 serial = atom['serial']
 				,atomname = atom['atomname']
 				,altLoc = atom['altLoc']
@@ -62,7 +62,8 @@ class Molecule:
 			))
 
 		return "".join(lines)
-		
-		
 	
+	def output(self, filename):
+		f = open(filename, 'w')
+		f.write(self.get_pdbtext())
 

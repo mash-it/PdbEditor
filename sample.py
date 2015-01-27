@@ -3,5 +3,5 @@ from PdbEditor import Molecule
 
 mol = Molecule("pdbfile/1SRL.pdb")
 mol.shift('x', 100)
-print mol.output_pdb()
+mol.output("shifted.pdb")
 
