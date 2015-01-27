@@ -41,6 +41,13 @@ class Molecule:
 				
 		return atom
 	
+	def get_boxsize(self):
+		xs = [ atom['x'] for atom in self.atoms ]
+		ys = [ atom['y'] for atom in self.atoms ]
+		zs = [ atom['z'] for atom in self.atoms ]
+
+		return ((min(xs), max(xs)),(min(ys), max(ys)),(min(zs), max(zs)))
+		
 	def shift(self, distance, direction):
 		for atom in self.atoms:
 			atom[distance] += direction
