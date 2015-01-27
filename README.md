@@ -24,7 +24,7 @@ mol.shift('x', 100)
 としても同じである。編集結果を出力するときは
 
 ```python
-print mol.output_pdb()
+mol.output("shifted.pdb")
 ```
 
 である。
